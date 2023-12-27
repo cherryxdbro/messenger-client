@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# Generated
+.vs/
+Generated Files/
+packages/
+x64/
+bin/
+obj/

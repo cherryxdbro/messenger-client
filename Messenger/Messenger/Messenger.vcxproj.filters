@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Manifest Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Message.cpp" />
+    <ClCompile Include="Pages.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="RandomBytes.cpp" />
+    <ClCompile Include="Capsulator.cpp">
+      <Filter>Security</Filter>
+    </ClCompile>
+    <ClCompile Include="Cryptor.cpp">
+      <Filter>Security</Filter>
+    </ClCompile>
+    <ClCompile Include="Signer.cpp">
+      <Filter>Security</Filter>
+    </ClCompile>
+    <ClCompile Include="Connection.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="StringMessage.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Message.h" />
+    <ClInclude Include="Pages.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Capsulator.h">
+      <Filter>Security</Filter>
+    </ClInclude>
+    <ClInclude Include="Cryptor.h">
+      <Filter>Security</Filter>
+    </ClInclude>
+    <ClInclude Include="Signer.h">
+      <Filter>Security</Filter>
+    </ClInclude>
+    <ClInclude Include="Connection.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="StringMessage.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="PropertySheet.props" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ChatPage.xaml" />
+    <Page Include="ConnectionPage.xaml" />
+    <Page Include="MainPage.xaml" />
+    <Page Include="MainWindow.xaml" />
+    <Page Include="SettingsPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Security">
+      <UniqueIdentifier>{066006b5-6890-4d69-a0b2-e0b5197e0611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{c0033a63-5b90-4438-b5fa-4f39e84412a1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

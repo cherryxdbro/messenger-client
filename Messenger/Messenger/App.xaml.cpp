@@ -45,6 +45,7 @@ App::App()
 void App::OnLaunched(LaunchActivatedEventArgs const&)
 {
     window = make<MainWindow>();
+    window.Title(L"Messenger");
     window.ExtendsContentIntoTitleBar(true);
     window.Activate();
 }

@@ -16,7 +16,9 @@ namespace winrt::Messenger::implementation
     {
         InitializeComponent();
         SetTitleBar(titleBar());
-        Title(L"Messenger");
+        auto windowNative{ this->m_inner.as<::IWindowNative>() };
+        HWND hWnd{ 0 };
+        windowNative->get_WindowHandle(&hWnd);
         mainFrame().Navigate(xaml_typename<Messenger::MainPage>());
     }
 }

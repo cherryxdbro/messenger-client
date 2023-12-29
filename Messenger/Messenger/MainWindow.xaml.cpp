@@ -16,6 +16,7 @@ namespace winrt::Messenger::implementation
     {
         InitializeComponent();
         SetTitleBar(titleBar());
+        Title(L"Messenger");
         mainFrame().Navigate(xaml_typename<Messenger::MainPage>());
     }
 }

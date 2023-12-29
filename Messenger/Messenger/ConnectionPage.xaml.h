@@ -18,8 +18,11 @@ namespace winrt::Messenger::implementation
 
         void connectButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
 
-        Capsulator::KyberKeyPair kyberKeyPair;
-        Signer::DilithiumKeyPair dilithiumKeyPair;
+        SOCKET clientSocket;
+        static Capsulator::KyberKeyPair kyberKeyPair;
+        static Signer::DilithiumKeyPair dilithiumKeyPair;
+        static Message kyberSecretKeyServer;
+        static Message dilithiumPublicKeyServer;
     };
 }
 

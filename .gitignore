@@ -33,8 +33,10 @@
 
 # Generated
 .vs/
+AppPackages/
+bin/
+BundleArtifacts/
 Generated Files/
+obj/
 packages/
 x64/
-bin/
-obj/

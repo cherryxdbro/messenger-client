@@ -111,21 +111,21 @@
       <IntrinsicFunctions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IntrinsicFunctions>
       <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
       <EnableFiberSafeOptimizations Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\T3\Messenger\Messenger\Messenger</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\T3\Messenger\Messenger\Messenger</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\T3\Messenger\Messenger\Messenger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
@@ -149,19 +149,19 @@
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AnySuitable</InlineFunctionExpansion>
       <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
       <EnableFiberSafeOptimizations Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\T3\Messenger\Messenger\Messenger</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\T3\Messenger\Messenger\Messenger</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\T3\Messenger\Messenger\Messenger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release</AdditionalLibraryDirectories>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release</AdditionalLibraryDirectories>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -173,6 +173,7 @@
       <DependentUpon>ChatPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
+    <ClInclude Include="Connection.h" />
     <ClInclude Include="ConnectionPage.xaml.h">
       <DependentUpon>ConnectionPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -191,11 +192,13 @@
     <ClInclude Include="MainWindow.xaml.h">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="Server.h" />
     <ClInclude Include="SettingsPage.xaml.h">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
     <ClInclude Include="Signer.h" />
+    <ClInclude Include="StringMessage.h" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -219,6 +222,7 @@
       <DependentUpon>ChatPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
+    <ClCompile Include="Connection.cpp" />
     <ClCompile Include="ConnectionPage.xaml.cpp">
       <DependentUpon>ConnectionPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -241,11 +245,13 @@
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="RandomBytes.cpp" />
+    <ClCompile Include="Server.cpp" />
     <ClCompile Include="SettingsPage.xaml.cpp">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
     <ClCompile Include="Signer.cpp" />
+    <ClCompile Include="StringMessage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="App.idl">

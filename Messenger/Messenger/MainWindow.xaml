@@ -9,7 +9,8 @@
 
         <Grid x:Name="titleBar"
               Grid.Row="0"
-              ColumnSpacing="8">
+              ColumnSpacing="8"
+              Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>

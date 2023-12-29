@@ -7,7 +7,16 @@
   <PropertyGroup>
     <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
     <AppxShowAllApps>False</AppxShowAllApps>
-    <AppxBuildConfigurationSelection>x86|x64|arm64</AppxBuildConfigurationSelection>
+    <AppxBuildConfigurationSelection>x64</AppxBuildConfigurationSelection>
     <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+    <Source>F:\CPP\ClientServer\Client\logo.png</Source>
+    <SmallTileSource>F:\CPP\ClientServer\Client\logo.png</SmallTileSource>
+    <MediumTileSource>F:\CPP\ClientServer\Client\logo.png</MediumTileSource>
+    <WideTileSource>F:\CPP\ClientServer\Client\logo.png</WideTileSource>
+    <LargeTileSource>F:\CPP\ClientServer\Client\logo.png</LargeTileSource>
+    <AppIconSource>F:\CPP\ClientServer\Client\logo.png</AppIconSource>
+    <SplashScreenSource>F:\CPP\ClientServer\Client\logo.png</SplashScreenSource>
+    <BadgeLogoSource>F:\CPP\ClientServer\Client\logo.png</BadgeLogoSource>
+    <PackageLogoSource>F:\CPP\ClientServer\Client\logo.png</PackageLogoSource>
   </PropertyGroup>
 </Project>

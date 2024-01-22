@@ -2,19 +2,20 @@
 
 #include "Message.h"
 
-Message::Message() noexcept
+Message::Message() noexcept :
+	Data()
 {
 
 }
 
-Message::Message(std::unique_ptr<uint8_t[]>&& data, size_t size) noexcept
+Message::Message(std::vector<uint8_t>&& data) noexcept :
+	Data(std::move(data))
 {
-	Data.swap(data);
-	Size = size;
+
 }
 
-Message::Message(Message&& other) noexcept
+Message::Message(Message&& other) noexcept :
+	Data(std::move(other.Data))
 {
-	Data.swap(other.Data);
-	Size = other.Size;
+
 }

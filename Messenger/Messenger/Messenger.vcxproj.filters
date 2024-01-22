@@ -27,7 +27,7 @@
     <ClCompile Include="Server.cpp">
       <Filter>Network</Filter>
     </ClCompile>
-    <ClCompile Include="StringMessage.cpp">
+    <ClCompile Include="WinsockInitializer.cpp">
       <Filter>Network</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +50,7 @@
     <ClInclude Include="Server.h">
       <Filter>Network</Filter>
     </ClInclude>
-    <ClInclude Include="StringMessage.h">
+    <ClInclude Include="WinsockInitializer.h">
       <Filter>Network</Filter>
     </ClInclude>
   </ItemGroup>

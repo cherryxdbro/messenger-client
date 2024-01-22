@@ -2,65 +2,65 @@
 
 #include "Cryptor.h"
 
-Message Cryptor::ToMessage(const winrt::hstring& message)
+Message Cryptor::ToMessage(const std::wstring& message) noexcept
 {
     size_t messageSize = message.size() * sizeof(wchar_t);
-    std::unique_ptr<uint8_t[]> messageData = std::make_unique<uint8_t[]>(messageSize);
-    memcpy_s(messageData.get(), messageSize, message.c_str(), messageSize);
-    return { std::move(messageData), messageSize };
+    std::vector<uint8_t> messageData(messageSize);
+    memcpy_s(messageData.data(), messageSize, message.c_str(), messageSize);
+    return { std::move(messageData) };
 }
 
-winrt::hstring Cryptor::ToHString(const Message& message)
+std::wstring Cryptor::ToWString(const Message& message) noexcept
 {
-    return { reinterpret_cast<const wchar_t*>(message.Data.get()), static_cast<winrt::hstring::size_type>(message.Size / sizeof(wchar_t)) };
+    return { reinterpret_cast<const wchar_t*>(message.Data.data()), message.Data.size() / sizeof(wchar_t) };
 }
 
-Message Cryptor::Encrypt(const Message& message, const std::unique_ptr<uint8_t[]>& sharedKey, const std::unique_ptr<uint8_t[]>& initializationVector)
+Message Cryptor::Encrypt(const Message& message, const std::vector<uint8_t>& sharedKey, const std::vector<uint8_t>& initializationVector) noexcept
 {
     BCRYPT_ALG_HANDLE algorithmHandle;
     BCRYPT_KEY_HANDLE keyHandle;
     if (!NT_SUCCESS(BCryptOpenAlgorithmProvider(&algorithmHandle, BCRYPT_AES_ALGORITHM, nullptr, 0)))
     {
-        throw CryptorError("Error BCryptOpenAlgorithmProvider");
+        return {  };
     }
-    if (!NT_SUCCESS(BCryptGenerateSymmetricKey(algorithmHandle, &keyHandle, nullptr, 0, sharedKey.get(), CRYPTO_BYTES, 0)))
+    if (!NT_SUCCESS(BCryptGenerateSymmetricKey(algorithmHandle, &keyHandle, nullptr, 0, const_cast<PUCHAR>(sharedKey.data()), CRYPTO_BYTES, 0)))
     {
-        throw CryptorError("Error BCryptGenerateSymmetricKey");
+        return {  };
     }
     ULONG encryptedMessageSize = 0;
-    if (!NT_SUCCESS(BCryptEncrypt(keyHandle, message.Data.get(), static_cast<ULONG>(message.Size), nullptr, initializationVector.get(), CRYPTO_BYTES, nullptr, 0, &encryptedMessageSize, BCRYPT_BLOCK_PADDING)))
+    if (!NT_SUCCESS(BCryptEncrypt(keyHandle, const_cast<PUCHAR>(message.Data.data()), static_cast<ULONG>(message.Data.size()), nullptr, const_cast<PUCHAR>(initializationVector.data()), CRYPTO_BYTES, nullptr, 0, &encryptedMessageSize, BCRYPT_BLOCK_PADDING)))
     {
-        throw CryptorError("Error BCryptEncrypt");
+        return {  };
     };
-    std::unique_ptr<uint8_t[]> encryptedMessage = std::make_unique<uint8_t[]>(encryptedMessageSize);
-    if (!NT_SUCCESS(BCryptEncrypt(keyHandle, message.Data.get(), static_cast<ULONG>(message.Size), nullptr, initializationVector.get(), CRYPTO_BYTES, encryptedMessage.get(), encryptedMessageSize, &encryptedMessageSize, BCRYPT_BLOCK_PADDING)))
+    std::vector<uint8_t> encryptedMessage(encryptedMessageSize);
+    if (!NT_SUCCESS(BCryptEncrypt(keyHandle, const_cast<PUCHAR>(message.Data.data()), static_cast<ULONG>(message.Data.size()), nullptr, const_cast<PUCHAR>(initializationVector.data()), CRYPTO_BYTES, encryptedMessage.data(), encryptedMessageSize, &encryptedMessageSize, BCRYPT_BLOCK_PADDING)))
     {
-        throw CryptorError("Error BCryptEncrypt");
+        return {  };
     };
-    return { std::move(encryptedMessage), encryptedMessageSize };
+    return { std::move(encryptedMessage) };
 }
 
-Message Cryptor::Decrypt(const Message& encryptedMessage, const std::unique_ptr<uint8_t[]>& sharedKey, const std::unique_ptr<uint8_t[]>& initializationVector)
+Message Cryptor::Decrypt(const Message& encryptedMessage, const std::vector<uint8_t>& sharedKey, const std::vector<uint8_t>& initializationVector) noexcept
 {
     BCRYPT_ALG_HANDLE algorithmHandle;
     BCRYPT_KEY_HANDLE keyHandle;
     if (!NT_SUCCESS(BCryptOpenAlgorithmProvider(&algorithmHandle, BCRYPT_AES_ALGORITHM, nullptr, 0)))
     {
-        throw CryptorError("Error BCryptOpenAlgorithmProvider");
+        return {  };
     }
-    if (!NT_SUCCESS(BCryptGenerateSymmetricKey(algorithmHandle, &keyHandle, nullptr, 0, sharedKey.get(), CRYPTO_BYTES, 0)))
+    if (!NT_SUCCESS(BCryptGenerateSymmetricKey(algorithmHandle, &keyHandle, nullptr, 0, const_cast<PUCHAR>(sharedKey.data()), CRYPTO_BYTES, 0)))
     {
-        throw CryptorError("Error BCryptGenerateSymmetricKey");
+        return {  };
     }
     ULONG messageSize = 0;
-    if (!NT_SUCCESS(BCryptDecrypt(keyHandle, encryptedMessage.Data.get(), static_cast<ULONG>(encryptedMessage.Size), nullptr, initializationVector.get(), CRYPTO_BYTES, nullptr, 0, &messageSize, BCRYPT_BLOCK_PADDING)))
+    if (!NT_SUCCESS(BCryptDecrypt(keyHandle, const_cast<PUCHAR>(encryptedMessage.Data.data()), static_cast<ULONG>(encryptedMessage.Data.size()), nullptr, const_cast<PUCHAR>(initializationVector.data()), CRYPTO_BYTES, nullptr, 0, &messageSize, BCRYPT_BLOCK_PADDING)))
     {
-        throw CryptorError("Error BCryptDecrypt");
+        return {  };
     };
-    std::unique_ptr<uint8_t[]> message = std::make_unique<uint8_t[]>(messageSize);
-    if (!NT_SUCCESS(BCryptDecrypt(keyHandle, encryptedMessage.Data.get(), static_cast<ULONG>(encryptedMessage.Size), nullptr, initializationVector.get(), CRYPTO_BYTES, message.get(), messageSize, &messageSize, BCRYPT_BLOCK_PADDING)))
+    std::vector<uint8_t> message(messageSize);
+    if (!NT_SUCCESS(BCryptDecrypt(keyHandle, const_cast<PUCHAR>(encryptedMessage.Data.data()), static_cast<ULONG>(encryptedMessage.Data.size()), nullptr, const_cast<PUCHAR>(initializationVector.data()), CRYPTO_BYTES, message.data(), messageSize, &messageSize, BCRYPT_BLOCK_PADDING)))
     {
-        throw CryptorError("Error BCryptDecrypt");
+        return {  };
     };
-    return { std::move(message), messageSize };
+    return { std::move(message) };
 }

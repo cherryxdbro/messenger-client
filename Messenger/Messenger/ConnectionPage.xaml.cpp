@@ -12,11 +12,6 @@ using namespace Microsoft::UI::Xaml;
 
 #include "Cryptor.h"
 
-extern "C"
-{
-    #include "randombytes.h"
-}
-
 namespace winrt::Messenger::implementation
 {
     Capsulator::KyberKeyPair ConnectionPage::kyberKeyPair = Capsulator::MakeKyberKeyPair();
@@ -31,17 +26,16 @@ namespace winrt::Messenger::implementation
 
     void ConnectionPage::connectButton_Click(Windows::Foundation::IInspectable const&, RoutedEventArgs const&)
     {
-        spdlog::info(winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path());
-        /*WSADATA wsaData;
+        WSADATA wsaData;
         int result = WSAStartup(MAKEWORD(2, 2), &wsaData);
         if (result != 0)
         {
-            spdlog::error("WSAStartup failed: [{}]", result);
+            spdlog::error(L"WSAStartup failed: [{}]", result);
         }
         clientSocket = socket(AF_INET6, SOCK_STREAM, IPPROTO_TCP);
         if (clientSocket == INVALID_SOCKET)
         {
-            spdlog::error("socket failed: [{}]", WSAGetLastError());
+            spdlog::error(L"socket failed: [{}]", WSAGetLastError());
             WSACleanup();
         }
         std::wstring strIp = L"::1";
@@ -57,21 +51,22 @@ namespace winrt::Messenger::implementation
         result = connect(clientSocket, (SOCKADDR*)&serverAddress, sizeof(serverAddress));
         if (result == SOCKET_ERROR)
         {
-            spdlog::error("connection failed: [{}]", WSAGetLastError());
+            spdlog::error(L"connection failed: [{}]", WSAGetLastError());
             closesocket(clientSocket);
             WSACleanup();
-        }*/
-        //while (true)
-        //{
-        //    std::string msg = "hello";
-        //    Message message;
-        //    int bytesSent = send(clientSocket, reinterpret_cast<const char*>(message.Size), sizeof(size_t), 0);
-        //    //StringMessage message3(msg);
-        //    //Message<int32_t> message2(msg.size() * sizeof(wchar_t));
-        //    bytesSent = send(clientSocket, msg.c_str(), sizeof(int32_t), 0);
-        //    bytesSent = send(clientSocket, msg.c_str(), message2.GetData(), 0);
-        //    msg.clear();
-        //}
+        }
+    }
+
+    void ConnectionPage::sendDataButton_Click(Windows::Foundation::IInspectable const&, RoutedEventArgs const&)
+    {
+        rapidjson::Value value;
+        rapidjson::Document document;
+        value.SetString(reinterpret_cast<const char*>(kyberKeyPair.PublicKey.data()), kyberKeyPair.PublicKey.size());
+        document.AddMember("kyber_pk", value, document.GetAllocator());
+        value.SetString(reinterpret_cast<const char*>(dilithiumKeyPair.PublicKey.data()), dilithiumKeyPair.PublicKey.size());
+        document.AddMember("dilithium_pk", value, document.GetAllocator());
+        const char* message = document.GetString();
+        int bytesSend = send(clientSocket, message, strlen(message), 0);
         /*if (unbox_value<hstring>(connectButton().Content()) != L"CHECK🌈")
         {
             kyberKeyPair = Capsulator::MakeKyberKeyPair();

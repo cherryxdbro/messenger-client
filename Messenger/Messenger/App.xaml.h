@@ -7,6 +7,8 @@
 
 #pragma pop_macro("GetCurrentTime")
 
+#include "WinsockInitializer.h"
+
 namespace winrt::Messenger::implementation
 {
     struct App : AppT<App>

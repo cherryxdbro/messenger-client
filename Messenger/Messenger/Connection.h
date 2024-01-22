@@ -1,7 +1,5 @@
 #pragma once
 
-#include "StringMessage.h"
-
 class Connection
 {
 public:

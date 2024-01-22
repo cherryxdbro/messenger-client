@@ -4,15 +4,17 @@
 
 extern "C"
 {
-	#include "sign.h"
+    #include "sign.h"
 }
+
+size_t Signer::PublicBytes = CRYPTO_PUBLICKEYBYTES;
 
 Signer::DilithiumKeyPair::DilithiumKeyPair() noexcept
 {
 
 }
 
-Signer::DilithiumKeyPair::DilithiumKeyPair(std::unique_ptr<uint8_t[]>&& publicKey, std::unique_ptr<uint8_t[]>&& privateKey) noexcept
+Signer::DilithiumKeyPair::DilithiumKeyPair(std::vector<uint8_t>&& publicKey, std::vector<uint8_t>&& privateKey) noexcept
 {
     PublicKey.swap(publicKey);
     PrivateKey.swap(privateKey);
@@ -34,35 +36,35 @@ Signer::DilithiumKeyPair& Signer::DilithiumKeyPair::operator=(DilithiumKeyPair&&
     return *this;
 }
 
-Signer::DilithiumKeyPair Signer::MakeDilithiumKeyPair()
+Signer::DilithiumKeyPair Signer::MakeDilithiumKeyPair() noexcept
 {
-    std::unique_ptr<uint8_t[]> publicKey(new uint8_t[CRYPTO_PUBLICKEYBYTES]);
-    std::unique_ptr<uint8_t[]> privateKey(new uint8_t[CRYPTO_SECRETKEYBYTES]);
-    if (crypto_sign_keypair(publicKey.get(), privateKey.get()) != 0)
+    std::vector<uint8_t> publicKey(CRYPTO_PUBLICKEYBYTES);
+    std::vector<uint8_t> privateKey(CRYPTO_SECRETKEYBYTES);
+    if (crypto_sign_keypair(publicKey.data(), privateKey.data()) != 0)
     {
-        throw SignerError("Error crypto_sign_keypair");
+        return {  };
     }
     return { std::move(publicKey), std::move(privateKey) };
 }
 
-Message Signer::DilithiumSign(const Message& message, const std::unique_ptr<uint8_t[]>& privateKey)
+Message Signer::DilithiumSign(const Message& message, const std::vector<uint8_t>& privateKey) noexcept
 {
     size_t signedMessageLength;
-    std::unique_ptr<uint8_t[]> signedMessage = std::make_unique<uint8_t[]>(message.Size + CRYPTO_BYTES);
-    if (crypto_sign(signedMessage.get(), &signedMessageLength, message.Data.get(), message.Size, privateKey.get()) != 0)
+    std::vector<uint8_t> signedMessage(message.Data.size() + CRYPTO_BYTES);
+    if (crypto_sign(signedMessage.data(), &signedMessageLength, message.Data.data(), message.Data.size(), privateKey.data()) != 0)
     {
-        throw SignerError("Error crypto_sign");
+        return {  };
     }
-    return { std::move(signedMessage), signedMessageLength };
+    return { std::move(signedMessage) };
 }
 
-Message Signer::DilithiumSignOpen(const Message& signedMessage, const std::unique_ptr<uint8_t[]>& publicKey)
+Message Signer::DilithiumSignOpen(const Message& signedMessage, const std::vector<uint8_t>& publicKey) noexcept
 {
     size_t messageLength;
-    std::unique_ptr<uint8_t[]> message = std::make_unique<uint8_t[]>(signedMessage.Size);
-    if (crypto_sign_open(message.get(), &messageLength, signedMessage.Data.get(), signedMessage.Size, publicKey.get()) != 0)
+    std::vector<uint8_t> message(signedMessage.Data.size());
+    if (crypto_sign_open(message.data(), &messageLength, signedMessage.Data.data(), signedMessage.Data.size(), publicKey.data()) != 0)
     {
-        throw SignerError("Error crypto_sign_open");
+        return {  };
     }
-    return { std::move(message), messageLength };
+    return { std::move(message) };
 }

@@ -17,6 +17,7 @@ namespace winrt::Messenger::implementation
         ConnectionPage();
 
         void connectButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
+        void sendDataButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
 
         SOCKET clientSocket;
         static Capsulator::KyberKeyPair kyberKeyPair;

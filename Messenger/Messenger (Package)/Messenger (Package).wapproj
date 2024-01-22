@@ -49,7 +49,7 @@
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <PackageCertificateThumbprint>4A489F67DE91539A2E0180DE29CD6BEE4C9E35E7</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>E8B3E9A9E2ECB42912970956B0439CF4AE06B576</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <AppxBundle>Always</AppxBundle>

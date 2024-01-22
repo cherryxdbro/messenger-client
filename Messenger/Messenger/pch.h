@@ -1,5 +1,9 @@
 ﻿#pragma once
 
+#ifdef _DEBUG
+#define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING
+#endif
+
 #include <WS2tcpip.h>
 
 #include <windows.h>
@@ -26,6 +30,8 @@
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.Storage.h>
 #include <winrt/Windows.UI.Xaml.Interop.h>
+
+#include <rapidjson/document.h>
 
 #pragma execution_character_set("utf-8")
 

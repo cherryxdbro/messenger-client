@@ -2,8 +2,12 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBox x:Name="dataTextBox"/>
         <Button x:Name="connectButton"
                 Content="Connect"
                 Click="connectButton_Click"/>
+        <Button x:Name="sendDataButton"
+                Content="Send data"
+                Click="sendDataButton_Click"/>
     </StackPanel>
 </Page>

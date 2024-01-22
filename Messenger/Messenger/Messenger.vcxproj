@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\Microsoft.Windows.CppWinRT.2.0.230706.1\build\native\Microsoft.Windows.CppWinRT.props" Condition="Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.230706.1\build\native\Microsoft.Windows.CppWinRT.props')" />
+  <Import Project="..\..\packages\Microsoft.Windows.CppWinRT.2.0.240111.5\build\native\Microsoft.Windows.CppWinRT.props" Condition="Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.240111.5\build\native\Microsoft.Windows.CppWinRT.props')" />
   <Import Project="..\..\packages\Microsoft.ProjectReunion.WinUI.0.8.12\build\native\Microsoft.ProjectReunion.WinUI.props" Condition="Exists('..\..\packages\Microsoft.ProjectReunion.WinUI.0.8.12\build\native\Microsoft.ProjectReunion.WinUI.props')" />
   <Import Project="..\..\packages\Microsoft.ProjectReunion.Foundation.0.8.12\build\native\Microsoft.ProjectReunion.Foundation.props" Condition="Exists('..\..\packages\Microsoft.ProjectReunion.Foundation.0.8.12\build\native\Microsoft.ProjectReunion.Foundation.props')" />
   <Import Project="..\..\packages\Microsoft.ProjectReunion.0.8.12\build\native\Microsoft.ProjectReunion.props" Condition="Exists('..\..\packages\Microsoft.ProjectReunion.0.8.12\build\native\Microsoft.ProjectReunion.props')" />
@@ -111,20 +111,26 @@
       <IntrinsicFunctions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IntrinsicFunctions>
       <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
       <EnableFiberSafeOptimizations Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">true</MultiProcessorCompilation>
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</MultiProcessorCompilation>
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</MultiProcessorCompilation>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
       <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
       <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
       <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -149,16 +155,19 @@
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AnySuitable</InlineFunctionExpansion>
       <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
       <EnableFiberSafeOptimizations Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\CPP\ClientServer\Client\kyber\ref;F:\CPP\ClientServer\Client\dilithium\ref;F:\CPP\ClientServer\Client\messenger-client\Messenger\Messenger;F:\CPP\ClientServer\Client\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">true</MultiProcessorCompilation>
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</MultiProcessorCompilation>
+      <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\CPP\ClientServer\Client\kyber\build\ref\Release;F:\CPP\ClientServer\Client\dilithium\build\ref\Release;F:\CPP\ClientServer\Client\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
       <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -198,7 +207,7 @@
       <SubType>Code</SubType>
     </ClInclude>
     <ClInclude Include="Signer.h" />
-    <ClInclude Include="StringMessage.h" />
+    <ClInclude Include="WinsockInitializer.h" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -251,7 +260,7 @@
       <SubType>Code</SubType>
     </ClCompile>
     <ClCompile Include="Signer.cpp" />
-    <ClCompile Include="StringMessage.cpp" />
+    <ClCompile Include="WinsockInitializer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="App.idl">
@@ -290,7 +299,7 @@
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\..\packages\Microsoft.ProjectReunion.Foundation.0.8.12\build\native\Microsoft.ProjectReunion.Foundation.targets" Condition="Exists('..\..\packages\Microsoft.ProjectReunion.Foundation.0.8.12\build\native\Microsoft.ProjectReunion.Foundation.targets')" />
     <Import Project="..\..\packages\Microsoft.ProjectReunion.WinUI.0.8.12\build\native\Microsoft.ProjectReunion.WinUI.targets" Condition="Exists('..\..\packages\Microsoft.ProjectReunion.WinUI.0.8.12\build\native\Microsoft.ProjectReunion.WinUI.targets')" />
-    <Import Project="..\..\packages\Microsoft.Windows.CppWinRT.2.0.230706.1\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.230706.1\build\native\Microsoft.Windows.CppWinRT.targets')" />
+    <Import Project="..\..\packages\Microsoft.Windows.CppWinRT.2.0.240111.5\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.240111.5\build\native\Microsoft.Windows.CppWinRT.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -301,7 +310,7 @@
     <Error Condition="!Exists('..\..\packages\Microsoft.ProjectReunion.Foundation.0.8.12\build\native\Microsoft.ProjectReunion.Foundation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.ProjectReunion.Foundation.0.8.12\build\native\Microsoft.ProjectReunion.Foundation.targets'))" />
     <Error Condition="!Exists('..\..\packages\Microsoft.ProjectReunion.WinUI.0.8.12\build\native\Microsoft.ProjectReunion.WinUI.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.ProjectReunion.WinUI.0.8.12\build\native\Microsoft.ProjectReunion.WinUI.props'))" />
     <Error Condition="!Exists('..\..\packages\Microsoft.ProjectReunion.WinUI.0.8.12\build\native\Microsoft.ProjectReunion.WinUI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.ProjectReunion.WinUI.0.8.12\build\native\Microsoft.ProjectReunion.WinUI.targets'))" />
-    <Error Condition="!Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.230706.1\build\native\Microsoft.Windows.CppWinRT.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Windows.CppWinRT.2.0.230706.1\build\native\Microsoft.Windows.CppWinRT.props'))" />
-    <Error Condition="!Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.230706.1\build\native\Microsoft.Windows.CppWinRT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Windows.CppWinRT.2.0.230706.1\build\native\Microsoft.Windows.CppWinRT.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.240111.5\build\native\Microsoft.Windows.CppWinRT.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Windows.CppWinRT.2.0.240111.5\build\native\Microsoft.Windows.CppWinRT.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Windows.CppWinRT.2.0.240111.5\build\native\Microsoft.Windows.CppWinRT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Windows.CppWinRT.2.0.240111.5\build\native\Microsoft.Windows.CppWinRT.targets'))" />
   </Target>
 </Project>

@@ -32,11 +32,11 @@
 #include <winrt/Windows.UI.Xaml.Interop.h>
 
 #include <rapidjson/document.h>
-
-#pragma execution_character_set("utf-8")
-
-#include <spdlog/spdlog.h>
-#include <spdlog/sinks/stdout_color_sinks.h>
-#include <spdlog/sinks/rotating_file_sink.h>
+#include <rapidjson/writer.h>
 
 #include <filesystem>
+
+extern "C"
+{
+	#include <sqlite3.h>
+}

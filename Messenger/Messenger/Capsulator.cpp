@@ -4,7 +4,7 @@
 
 extern "C"
 {
-    #include "kem.h"
+    #include <kem.h>
 }
 
 size_t Capsulator::PublicBytes = CRYPTO_PUBLICKEYBYTES;
@@ -30,11 +30,8 @@ Capsulator::KyberKeyPair::KyberKeyPair(KyberKeyPair&& other) noexcept
 
 Capsulator::KyberKeyPair& Capsulator::KyberKeyPair::operator=(KyberKeyPair&& other) noexcept
 {
-    if (this != &other)
-    {
-        PublicKey.swap(other.PublicKey);
-        PrivateKey.swap(other.PrivateKey);
-    }
+    PublicKey.swap(other.PublicKey);
+    PrivateKey.swap(other.PrivateKey);
     return *this;
 }
 
@@ -59,11 +56,8 @@ Capsulator::KyberCapsulated::KyberCapsulated(KyberCapsulated&& other) noexcept
 
 Capsulator::KyberCapsulated& Capsulator::KyberCapsulated::operator=(KyberCapsulated&& other) noexcept
 {
-    if (this != &other)
-    {
-        CipherText.swap(other.CipherText);
-        SharedKey.swap(other.SharedKey);
-    }
+    CipherText.swap(other.CipherText);
+    SharedKey.swap(other.SharedKey);
     return *this;
 }
 

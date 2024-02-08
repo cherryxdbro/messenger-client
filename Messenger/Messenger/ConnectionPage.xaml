@@ -1,13 +1,65 @@
 ﻿<Page x:Class="Messenger.ConnectionPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBox x:Name="dataTextBox"/>
-        <Button x:Name="connectButton"
-                Content="Connect"
-                Click="connectButton_Click"/>
-        <Button x:Name="sendDataButton"
-                Content="Send data"
-                Click="sendDataButton_Click"/>
-    </StackPanel>
+    <Grid RowSpacing="16"
+          Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0"
+                BorderBrush="Coral"
+                BorderThickness="2">
+            <Grid ColumnSpacing="16"
+                  Margin="8"
+                  HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Text="Ip:"
+                           VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1"
+                         x:Name="ipTextBox"
+                         HorizontalAlignment="Left"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1"
+                BorderBrush="Khaki" BorderThickness="2">
+            <Grid ColumnSpacing="16"
+                  Margin="8"
+                  HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Text="Port:"
+                           VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1"
+                         x:Name="portTextBox"
+                         HorizontalAlignment="Left"/>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="2"
+              ColumnSpacing="16"
+              Margin="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    x:Name="connectButton"
+                    Content="Connect"
+                    HorizontalAlignment="Center"
+                    Click="connectButton_Click"/>
+            <Button Grid.Column="1"
+                    x:Name="sendDataButton"
+                    Content="Send data"
+                    HorizontalAlignment="Center"
+                    Click="sendDataButton_Click"/>
+        </Grid>
+    </Grid>
 </Page>

@@ -30,30 +30,29 @@ namespace winrt::Messenger::implementation
         int result = WSAStartup(MAKEWORD(2, 2), &wsaData);
         if (result != 0)
         {
-            spdlog::error(L"WSAStartup failed: [{}]", result);
+            return;
         }
         clientSocket = socket(AF_INET6, SOCK_STREAM, IPPROTO_TCP);
         if (clientSocket == INVALID_SOCKET)
         {
-            spdlog::error(L"socket failed: [{}]", WSAGetLastError());
             WSACleanup();
+            return;
         }
-        std::wstring strIp = L"::1";
-        std::wstring strPort = L"5678";
+        std::wstring strIp = ipTextBox().Text().c_str();
         char ip[INET6_ADDRSTRLEN];
         size_t convertedChars = 0;
         wcstombs_s(&convertedChars, ip, INET6_ADDRSTRLEN, strIp.c_str(), strIp.length());
         struct sockaddr_in6 serverAddress;
         memset(&serverAddress, 0, sizeof(serverAddress));
         serverAddress.sin6_family = AF_INET6;
-        serverAddress.sin6_port = htons(static_cast<unsigned short>(std::stoul(strPort)));
+        serverAddress.sin6_port = htons(static_cast<unsigned short>(std::stoul(portTextBox().Text().c_str())));
         inet_pton(AF_INET6, ip, &serverAddress.sin6_addr);
         result = connect(clientSocket, (SOCKADDR*)&serverAddress, sizeof(serverAddress));
         if (result == SOCKET_ERROR)
         {
-            spdlog::error(L"connection failed: [{}]", WSAGetLastError());
             closesocket(clientSocket);
             WSACleanup();
+            return;
         }
     }
 
@@ -61,11 +60,15 @@ namespace winrt::Messenger::implementation
     {
         rapidjson::Value value;
         rapidjson::Document document;
+        document.SetObject();
         value.SetString(reinterpret_cast<const char*>(kyberKeyPair.PublicKey.data()), kyberKeyPair.PublicKey.size());
         document.AddMember("kyber_pk", value, document.GetAllocator());
         value.SetString(reinterpret_cast<const char*>(dilithiumKeyPair.PublicKey.data()), dilithiumKeyPair.PublicKey.size());
         document.AddMember("dilithium_pk", value, document.GetAllocator());
-        const char* message = document.GetString();
+        rapidjson::StringBuffer buffer;
+        rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+        document.Accept(writer);
+        const char* message = buffer.GetString();
         int bytesSend = send(clientSocket, message, strlen(message), 0);
         /*if (unbox_value<hstring>(connectButton().Content()) != L"CHECK🌈")
         {

@@ -89,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
-      <PreprocessorDefinitions>KYBER_K=4;DILITHIUM_MODE=5;DILITHIUM_USE_AES;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DILITHIUM_MODE=5;DILITHIUM_USE_AES;KYBER_K=4;SQLITE_THREADSAFE=2;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">Speed</FavorSizeOrSpeed>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Speed</FavorSizeOrSpeed>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Speed</FavorSizeOrSpeed>
@@ -111,9 +111,9 @@
       <IntrinsicFunctions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IntrinsicFunctions>
       <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
       <EnableFiberSafeOptimizations Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">C:\Users\TY_1_\source\repos\dilithium\ref;C:\Users\TY_1_\source\repos\kyber\ref;C:\Users\TY_1_\source\repos\messenger-client\Messenger\Messenger;C:\Users\TY_1_\source\repos\rapidjson\include;C:\Users\TY_1_\source\repos\spdlog\include;C:\Users\TY_1_\source\repos\sqlite-amalgamation-3450100;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\TY_1_\source\repos\dilithium\ref;C:\Users\TY_1_\source\repos\kyber\ref;C:\Users\TY_1_\source\repos\messenger-client\Messenger\Messenger;C:\Users\TY_1_\source\repos\rapidjson\include;C:\Users\TY_1_\source\repos\spdlog\include;C:\Users\TY_1_\source\repos\sqlite-amalgamation-3450100;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\TY_1_\source\repos\dilithium\ref;C:\Users\TY_1_\source\repos\kyber\ref;C:\Users\TY_1_\source\repos\messenger-client\Messenger\Messenger;C:\Users\TY_1_\source\repos\rapidjson\include;C:\Users\TY_1_\source\repos\spdlog\include;C:\Users\TY_1_\source\repos\sqlite-amalgamation-3450100;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">true</MultiProcessorCompilation>
       <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</MultiProcessorCompilation>
       <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</MultiProcessorCompilation>
@@ -122,21 +122,21 @@
       <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">C:\Users\TY_1_\source\repos\dilithium\build\ref\Release;C:\Users\TY_1_\source\repos\kyber\build\ref\Release;C:\Users\TY_1_\source\repos\spdlog\build\Release;C:\Users\TY_1_\source\repos\sqlite\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;kyber1024_ref.lib;kyber_fips202_ref.lib;spdlog.lib;sqlite.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\TY_1_\source\repos\dilithium\build\ref\Release;C:\Users\TY_1_\source\repos\kyber\build\ref\Release;C:\Users\TY_1_\source\repos\spdlog\build\Release;C:\Users\TY_1_\source\repos\sqlite\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;kyber1024_ref.lib;kyber_fips202_ref.lib;spdlog.lib;sqlite.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\TY_1_\source\repos\dilithium\build\ref\Release;C:\Users\TY_1_\source\repos\kyber\build\ref\Release;C:\Users\TY_1_\source\repos\spdlog\build\Release;C:\Users\TY_1_\source\repos\sqlite\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;kyber1024_ref.lib;kyber_fips202_ref.lib;spdlog.lib;sqlite.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
-      <PreprocessorDefinitions>KYBER_K=4;DILITHIUM_MODE=5;DILITHIUM_USE_AES;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DILITHIUM_MODE=5;DILITHIUM_USE_AES;KYBER_K=4;SQLITE_THREADSAFE=2;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">Speed</FavorSizeOrSpeed>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Speed</FavorSizeOrSpeed>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Speed</FavorSizeOrSpeed>
@@ -147,30 +147,33 @@
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdcpplatest</LanguageStandard>
       <LanguageStandard_C Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdc17</LanguageStandard_C>
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">AnySuitable</InlineFunctionExpansion>
-      <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Release|arm64'" />
+      <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">true</OmitFramePointers>
       <EnableFiberSafeOptimizations Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">true</EnableFiberSafeOptimizations>
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AnySuitable</InlineFunctionExpansion>
-      <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+      <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</OmitFramePointers>
       <EnableFiberSafeOptimizations Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</EnableFiberSafeOptimizations>
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AnySuitable</InlineFunctionExpansion>
-      <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+      <OmitFramePointers Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</OmitFramePointers>
       <EnableFiberSafeOptimizations Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">S:\Files\C++\T3\kyber\ref;S:\Files\C++\T3\dilithium\ref;S:\Files\C++\messenger-client\Messenger\Messenger;S:\Files\C++\T3\spdlog\include;S:\Files\C++\T3\rapidjson\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">C:\Users\TY_1_\source\repos\dilithium\ref;C:\Users\TY_1_\source\repos\kyber\ref;C:\Users\TY_1_\source\repos\messenger-client\Messenger\Messenger;C:\Users\TY_1_\source\repos\rapidjson\include;C:\Users\TY_1_\source\repos\spdlog\include;C:\Users\TY_1_\source\repos\sqlite-amalgamation-3450100;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\TY_1_\source\repos\dilithium\ref;C:\Users\TY_1_\source\repos\kyber\ref;C:\Users\TY_1_\source\repos\messenger-client\Messenger\Messenger;C:\Users\TY_1_\source\repos\rapidjson\include;C:\Users\TY_1_\source\repos\spdlog\include;C:\Users\TY_1_\source\repos\sqlite-amalgamation-3450100;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\TY_1_\source\repos\dilithium\ref;C:\Users\TY_1_\source\repos\kyber\ref;C:\Users\TY_1_\source\repos\messenger-client\Messenger\Messenger;C:\Users\TY_1_\source\repos\rapidjson\include;C:\Users\TY_1_\source\repos\spdlog\include;C:\Users\TY_1_\source\repos\sqlite-amalgamation-3450100;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">true</MultiProcessorCompilation>
       <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</MultiProcessorCompilation>
       <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</MultiProcessorCompilation>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">None</DebugInformationFormat>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">None</DebugInformationFormat>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|x64'">None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">S:\Files\C++\T3\kyber\build\ref\Release;S:\Files\C++\T3\dilithium\build\ref\Release;S:\Files\C++\T3\spdlog\build\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kyber1024_ref.lib;fips202_ref.lib;dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;spdlog.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">C:\Users\TY_1_\source\repos\dilithium\build\ref\Release;C:\Users\TY_1_\source\repos\kyber\build\ref\Release;C:\Users\TY_1_\source\repos\spdlog\build\Release;C:\Users\TY_1_\source\repos\sqlite\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\TY_1_\source\repos\dilithium\build\ref\Release;C:\Users\TY_1_\source\repos\kyber\build\ref\Release;C:\Users\TY_1_\source\repos\spdlog\build\Release;C:\Users\TY_1_\source\repos\sqlite\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\TY_1_\source\repos\dilithium\build\ref\Release;C:\Users\TY_1_\source\repos\kyber\build\ref\Release;C:\Users\TY_1_\source\repos\spdlog\build\Release;C:\Users\TY_1_\source\repos\sqlite\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|arm64'">dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;kyber1024_ref.lib;kyber_fips202_ref.lib;spdlog.lib;sqlite.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;kyber1024_ref.lib;kyber_fips202_ref.lib;spdlog.lib;sqlite.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">dilithium5aes_ref.lib;dilithium_aes256ctr_ref.lib;dilithium_fips202_ref.lib;kyber1024_ref.lib;kyber_fips202_ref.lib;spdlog.lib;sqlite.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -182,7 +185,6 @@
       <DependentUpon>ChatPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
-    <ClInclude Include="Connection.h" />
     <ClInclude Include="ConnectionPage.xaml.h">
       <DependentUpon>ConnectionPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -201,13 +203,11 @@
     <ClInclude Include="MainWindow.xaml.h">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="Server.h" />
     <ClInclude Include="SettingsPage.xaml.h">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
     <ClInclude Include="Signer.h" />
-    <ClInclude Include="WinsockInitializer.h" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -231,7 +231,6 @@
       <DependentUpon>ChatPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
-    <ClCompile Include="Connection.cpp" />
     <ClCompile Include="ConnectionPage.xaml.cpp">
       <DependentUpon>ConnectionPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -254,13 +253,11 @@
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="RandomBytes.cpp" />
-    <ClCompile Include="Server.cpp" />
     <ClCompile Include="SettingsPage.xaml.cpp">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
     <ClCompile Include="Signer.cpp" />
-    <ClCompile Include="WinsockInitializer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="App.idl">

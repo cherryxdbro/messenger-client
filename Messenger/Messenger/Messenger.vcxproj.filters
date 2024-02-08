@@ -21,15 +21,6 @@
     <ClCompile Include="Signer.cpp">
       <Filter>Security</Filter>
     </ClCompile>
-    <ClCompile Include="Connection.cpp">
-      <Filter>Network</Filter>
-    </ClCompile>
-    <ClCompile Include="Server.cpp">
-      <Filter>Network</Filter>
-    </ClCompile>
-    <ClCompile Include="WinsockInitializer.cpp">
-      <Filter>Network</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Message.h" />
@@ -43,15 +34,6 @@
     </ClInclude>
     <ClInclude Include="Signer.h">
       <Filter>Security</Filter>
-    </ClInclude>
-    <ClInclude Include="Connection.h">
-      <Filter>Network</Filter>
-    </ClInclude>
-    <ClInclude Include="Server.h">
-      <Filter>Network</Filter>
-    </ClInclude>
-    <ClInclude Include="WinsockInitializer.h">
-      <Filter>Network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

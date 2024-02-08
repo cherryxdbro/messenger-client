@@ -20,10 +20,6 @@ using namespace Messenger::implementation;
 /// </summary>
 App::App()
 {
-    spdlog::set_default_logger(std::make_shared<spdlog::logger>("main", spdlog::sink_ptr
-        {
-            std::make_shared<spdlog::sinks::rotating_file_sink_mt>((std::filesystem::path(winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().c_str()) / L"logs" / L"log.txt"), 1024Ui64 * 1024Ui64 * 16Ui64, 10Ui64)
-        }));
     InitializeComponent();
 #if defined _DEBUG && !defined DISABLE_XAML_GENERATED_BREAK_ON_UNHANDLED_EXCEPTION
     UnhandledException([this](IInspectable const&, UnhandledExceptionEventArgs const& e)

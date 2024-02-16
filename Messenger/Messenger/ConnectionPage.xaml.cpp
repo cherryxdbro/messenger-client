@@ -32,7 +32,7 @@ namespace winrt::Messenger::implementation
         {
             return;
         }
-        clientSocket = socket(AF_INET6, SOCK_STREAM, IPPROTO_TCP);
+        clientSocket = WSASocket(AF_INET6, SOCK_STREAM, IPPROTO_TCP, NULL, 0, WSA_FLAG_OVERLAPPED);
         if (clientSocket == INVALID_SOCKET)
         {
             WSACleanup();
@@ -58,7 +58,7 @@ namespace winrt::Messenger::implementation
 
     void ConnectionPage::sendDataButton_Click(Windows::Foundation::IInspectable const&, RoutedEventArgs const&)
     {
-        rapidjson::Value value;
+        /*rapidjson::Value value;
         rapidjson::Document document;
         document.SetObject();
         value.SetString(reinterpret_cast<const char*>(kyberKeyPair.PublicKey.data()), kyberKeyPair.PublicKey.size());
@@ -68,8 +68,12 @@ namespace winrt::Messenger::implementation
         rapidjson::StringBuffer buffer;
         rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
         document.Accept(writer);
-        const char* message = buffer.GetString();
-        int bytesSend = send(clientSocket, message, strlen(message), 0);
+        const char* message = buffer.GetString();*/
+        size_t publicKeysSize = Capsulator::PublicBytes + Signer::PublicBytes;
+        std::vector<uint8_t> publicKeys(publicKeysSize);
+        memcpy_s(publicKeys.data(), Capsulator::PublicBytes, kyberKeyPair.PublicKey.data(), Capsulator::PublicBytes);
+        memcpy_s(publicKeys.data() + Capsulator::PublicBytes, Signer::PublicBytes, dilithiumKeyPair.PublicKey.data(), Signer::PublicBytes);
+        int bytesSend = send(clientSocket, reinterpret_cast<const char*>(publicKeys.data()), publicKeysSize, 0);
         /*if (unbox_value<hstring>(connectButton().Content()) != L"CHECK🌈")
         {
             kyberKeyPair = Capsulator::MakeKyberKeyPair();
